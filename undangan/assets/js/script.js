@@ -42,6 +42,7 @@ const buttonNav = document.querySelectorAll('.mainNav div')
 
 for (var i = 0; i < buttonNav.length; i++) {
     buttonNav[i].addEventListener('click', (e) => {
+        document.querySelector('.mainNav .text-warning').classList.add('text-secondary')
         document.querySelector('.mainNav .text-warning').classList.remove('text-warning')
         if (e.target.nodeName === 'I') {
             e.target.parentElement.classList.remove('text-secondary');
@@ -61,4 +62,37 @@ for (var i = 0; i < buttonNav.length; i++) {
             document.getElementById(idName).classList.remove('d-none')
         }
     })
+}
+
+// audio player
+const audio_player = document.querySelector('.audio-player');
+
+audio_player.addEventListener('click', () => {
+    if (document.querySelector('.audio-player .btn').getAttribute('data-name') === 'play') {
+        document.getElementById('myAudio').pause()
+        document.querySelector('.audio-player .btn').classList.remove('bx-music')
+        document.querySelector('.audio-player .btn').classList.add('bx-pause')
+        document.querySelector('.audio-player .btn').removeAttribute('data-name')
+        document.querySelector('.audio-player .btn').setAttribute('data-name', 'pause')
+    } else {
+        document.getElementById('myAudio').play()
+        document.querySelector('.audio-player .btn').classList.remove('bx-pause')
+        document.querySelector('.audio-player .btn').classList.add('bx-music')
+        document.querySelector('.audio-player .btn').removeAttribute('data-name')
+        document.querySelector('.audio-player .btn').setAttribute('data-name', 'play')
+    }
+})
+
+// copy number
+
+function selectText() {
+    const input = document.getElementById('text-box');
+    input.value = document.querySelector('.noRekening').innerHTML
+    input.focus();
+    input.select();
+    document.execCommand("copy");
+    document.querySelector('.copysuccess').classList.remove('d-none')
+    setTimeout(function() {
+        document.querySelector('.copysuccess').classList.add('d-none'); // Hide it after the timeout
+    }, 2000);
 }
