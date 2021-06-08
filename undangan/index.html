@@ -26,7 +26,7 @@
                 <!-- add homepage -->
                 <div class="position-relative w-100 vh-100 homepage">
                     <!-- add background -->
-                    <div class="position-absolute w-100 vh-100 background-cover" style="background-image: url(../assets/img/homescreen.jpg);"></div>
+                    <div class="position-absolute w-100 vh-100 background-cover" style="background-image: url(/assets/img/homescreen.jpg);"></div>
                     <!-- add opacity into background -->
                     <div class="position-absolute w-100 vh-100 background-opacity"></div>
                     <!-- add text into homepage -->
@@ -34,23 +34,25 @@
                         <div class="col text-center text-white align-self-center">
                             <p class="fs-5">Kepada yth.</p>
                             <p class="fs-5">Bapak/Ibu/Saudara/i</p>
-                            <p class="fs-1 fw-bold">Naufal Rafif</p>
+                            <p class="fs-1 fw-bold userName">Naufal Rafif</p>
                             <a class="btn btn-outline-light fs-6 closeHomepage">Buka Undangan</a>
                         </div>
                     </div>
                 </div>
+
                 <!-- add navigation tab -->
                 <div class="mainNav d-flex position-absolute w-100 bottom-0 bg-light py-3 justify-content-around">
-                    <div class="btn fs-3 text-warning" data-id="home"><i class="bx bx-home-heart"></i></div>
-                    <div class="btn fs-3 text-secondary" data-id="couple"><i class="bx bx-donate-heart"></i></div>
-                    <div class="btn fs-3 text-secondary" data-id="datetime"><i class="bx bx-calendar-heart"></i></div>
-                    <div class="btn fs-3 text-secondary" data-id="gallery"><i class="bx bx-book-heart"></i></div>
-                    <div class="btn fs-3 text-secondary" data-id="story"><i class="bx bx-bookmark-heart"></i></div>
+                    <div class="btn fs-1 text-warning" data-id="home"><i class="bx bx-home-heart"></i></div>
+                    <div class="btn fs-1 text-secondary" data-id="couple"><i class="bx bx-donate-heart"></i></div>
+                    <div class="btn fs-1 text-secondary" data-id="datetime"><i class="bx bx-calendar-heart"></i></div>
+                    <div class="btn fs-1 text-secondary" data-id="gallery"><i class="bx bx-book-heart"></i></div>
+                    <div class="btn fs-1 text-secondary" data-id="story"><i class="bx bx-bookmark-heart"></i></div>
                 </div>
 
-                <div class="container position-absolute top-0 vh-100 background-cover" style="background-image: url(assets/img/homescreen.jpg); z-index: 0;"></div>
+                <div class="container position-absolute top-0 vh-100 background-cover" style="background-image: url(../assets/img/homescreen.jpg); z-index: 0;"></div>
                 <div class="container position-absolute top-0 vh-100 background-opacity" style="z-index: 0;"></div>
 
+                <!-- mainpage -->
                 <div class="container position-absolute top-0 row vh-100 mx-auto overflow-auto mainpage">
                     <!-- home -->
                     <div class="col text-center text-white align-self-center active" id="home">
@@ -76,6 +78,7 @@
                                 <p class="fs-6 fw-lighter mx-5">Putra dari Bapak Doni Mars dan Ibu Diny Venus</p>
                             </div>
                         </div>
+                        <br><br><br>
                     </div>
 
                     <!-- date and time -->
@@ -232,11 +235,15 @@
                         <!-- transfer -->
                         <p class="mt-5 fs-6 fw-lighter">Bagi kamu yang ingin memberikan hadiah untuk pernikahan kami, silakan transfer ke rekening berikut:​</p>
                         <div class="row mb-5 bg-opacity-dark rounded-3">
-                            <p class="mb-0 mt-3 fs-6 fw-lighter">Bank Mandiri<br> No. Rekening 123 123 123<br> a.n Lestari Dwi Putri​</p>
+                            <p class="mb-0 mt-3 fs-6 fw-lighter">Bank Mandiri​</p>
+                            <p class="mb-0 fs-6 fw-lighter">No. Rekening <span class="noRekening">124123123</span></p>
+                            <p class="mb-0 fs-6 fw-lighter">a.n Lestari Dwi Putri​</p>
                             <div class="col">
-                                <a href="https://goo.gl/maps/r8SFbu8rhSG7TV9k9" class="btn btn-outline-warning text-white px-5 mt-3 fs-7">Copy Nomor Rekening</a>
+                                <button onclick="selectText()" class="btn btn-outline-warning text-white px-5 mt-3 fs-7">Copy Nomor Rekening</button>
                             </div>
-                            <p class="mt-3 fs-6 fw-lighter">Terimakasih.​</p>
+                            <input type="text" id="text-box" style="opacity: 0;">
+                            <p class="fs-6 fw-lighter">Terimakasih.​</p>
+                            <div class="copysuccess d-none bg-light rounded-3 text-success"><i class="bx bx-check-circle"></i> Copied to clipboard</div>
                         </div>
 
                         <!-- attendance confirmation -->
@@ -244,18 +251,86 @@
                             <p class="fs-6 fw-lighter">Tekan tombol di bawah ini untuk konfirmasikan kehadiran kamu untuk</p>
                             <p class="fs-3 dancing-script">Lorem & Ipsum</p>
                             <div class="col">
-                                <a href="https://goo.gl/maps/r8SFbu8rhSG7TV9k9" class="btn btn-outline-warning text-white px-5 mt-3 fs-7 fw-lighter">Konfirmasi Kehadiran Mempelai Wanita</a>
+                                <a class="btn btn-outline-warning text-white px-5 mt-3 fs-7 fw-lighter" data-bs-toggle="modal" data-bs-target="#konfirmasiMempelaiWanita">Konfirmasi Kehadiran Mempelai Wanita</a>
                             </div>
                             <div class="col">
-                                <a href="https://goo.gl/maps/r8SFbu8rhSG7TV9k9" class="btn btn-outline-warning text-white px-5 mt-3 fs-7 fw-lighter">Konfirmasi Kehadiran Mempelai Pria</a>
+                                <a class="btn btn-outline-warning text-white px-5 mt-3 fs-7 fw-lighter" data-bs-toggle="modal" data-bs-target="#konfirmasiMempelaiPria">Konfirmasi Kehadiran Mempelai Pria</a>
                             </div>
                         </div>
 
+                        <!-- modal -->
+                        <div class="modal fade" id="konfirmasiMempelaiWanita" tabindex="-1" aria-labelledby="konfirmasiMempelaiWanita" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-warning text-start fs-6" id="konfirmasiMempelaiWanita">Konfirmasi Kehadiran Mempelai Wanita</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+                                            <div class="col-md-3">
+                                                <label for="validationCustom04" class="form-label">Kehadiran</label>
+                                                <select class="form-select shadow-none border border-1 border-warning" id="validationCustom04" required>
+                                                    <option value="hadir">Hadir</option>
+                                                    <option value="belum bisa hadir">Mohon Maaf Belum Bisa Hadir</option>
+                                                    <option value="ragu-ragu">Ragu-Ragu</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="validationCustom02" class="form-label">Ucapan</label>
+                                                <textarea class="form-control shadow-none border border-1 border-warning" id="validationCustom02" height="100px" placeholder="Ucapan Selamat dan Doa" required></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-warning text-white">Kirim Konfirmasi</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="konfirmasiMempelaiPria" tabindex="-1" aria-labelledby="konfirmasiMempelaiPria" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-warning text-start fs-6" id="konfirmasiMempelaiPria">Konfirmasi Kehadiran Mempelai Pria</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+                                            <div class="col-md-3">
+                                                <label for="validationCustom04" class="form-label">Kehadiran</label>
+                                                <select class="form-select shadow-none border border-1 border-warning" id="validationCustom04" required>
+                                                    <option value="hadir">Hadir</option>
+                                                    <option value="belum bisa hadir">Mohon Maaf Belum Bisa Hadir</option>
+                                                    <option value="ragu-ragu">Ragu-Ragu</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="validationCustom02" class="form-label">Ucapan</label>
+                                                <textarea class="form-control shadow-none border border-1 border-warning" id="validationCustom02" height="100px" placeholder="Ucapan Selamat dan Doa" required></textarea>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-warning text-white">Kirim Konfirmasi</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- congratulation message -->
                         <br><br><br><br>
                     </div>
 
 
+                </div>
+
+                <!-- add audio player -->
+                <div class="audio-player position-absolute top-0 mt-5 end-0">
+                    <span class="btn bx bx-music fs-4 p-2 me-3 bg-warning bg-gradient rounded-circle" data-name="play"></span>
+                    <audio id="myAudio" autoplay loop>
+                        <source src="assets/music/01-Beneath-the-Moonlight-Aaron-K.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                      </audio>
                 </div>
 
             </div>
